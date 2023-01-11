@@ -20,6 +20,32 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const mongoose = require('mongoose');
+
+const Items = require('./models/items');
+
+// const url = 'mongodb://localhost:27017/conFusion';
+const url = "mongodb+srv://user1:user1user1@cluster0.rddsa6m.mongodb.net/mixedNotes?retryWrites=true&w=majority";
+const connect = mongoose.connect(url);
+
+connect.then((db) => {
+    console.log("Connected correctly to server");
+}, (err) => { console.log(err); });
+
+
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+// const uri = "mongodb+srv://user1:user1user1@cluster0.rddsa6m.mongodb.net/?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+// // client.connect(err => {
+// //   const collection = client.db("mixedNotes").collection("items");
+// //   // perform actions on the collection object
+// //   client.close();
+// // });
+// client.connect().then((db) => {
+//   console.log("Connected correctly to server");
+// });
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/items', itemRouter);
