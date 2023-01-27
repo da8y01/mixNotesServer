@@ -1,0 +1,4 @@
+module.exports = {
+    'secretKey': '12345-67890-09876-54321',
+    'mongoUrl' : 'mongodb+srv://user1:user1user1@cluster0.rddsa6m.mongodb.net/mixedNotes?retryWrites=true&w=majority'
+}
