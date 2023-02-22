@@ -12,6 +12,7 @@ var config = require('./config');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var itemRouter = require('./routes/itemRouter');
+const uploadRouter = require('./routes/uploadRouter');
 
 var app = express();
 
@@ -75,6 +76,7 @@ connect.then((db) => {
 
 
 app.use('/items', itemRouter);
+app.use('/imageUpload',uploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
