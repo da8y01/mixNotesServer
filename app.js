@@ -46,8 +46,8 @@ app.use(passport.session());
 //   }
 // });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/mixNotesServer/', indexRouter);
+app.use('/mixNotesServer/users', usersRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -76,9 +76,9 @@ connect.then((db) => {
 // });
 
 
-app.use('/items', itemRouter);
-app.use('/imageUpload',uploadRouter);
-app.use('/favorites', favoriteRouter);
+app.use('/mixNotesServer/items', itemRouter);
+app.use('/mixNotesServer/imageUpload',uploadRouter);
+app.use('/mixNotesServer/favorites', favoriteRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
