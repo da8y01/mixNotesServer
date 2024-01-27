@@ -12,7 +12,7 @@ itemRouter.use(bodyParser.json());
 itemRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.cors, (req,res,next) => {
-    Items.find({})
+    Items.find(req.query)
     .then((items) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
